@@ -1,25 +1,35 @@
 import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
 import "./App.css";
-
-const initialTeamMembers = [
-  {
-    id: uuid(),
-    fullName: "Gabe Romero",
-    email: "gabester78@gmail.com",
-    role: "Big Poppa Pump",
-  },
-];
+import Form from "./Components/Form";
+import TeamMemberList from "./Components/TeamMemberList";
 
 function App() {
-  const [teamMembers, setTeamMembers] = useState(initialTeamMembers);
-  const [formValues, setFormValues] = useState({
-    fullName: "",
-    email: "",
-    role: "",
-  });
+  const [members, setMembers] = useState([
+    {
+      id: uuid(),
+      name: "Gabriel Romero",
+      email: "gabester78@gmail.com",
+      role: "SwoleMaster",
+    },
+  ]);
 
-  return <div className="App"></div>;
+  const addNewMember = (members) => {
+    const newMember = {
+      id: Date.now(),
+      name: members.name,
+      email: members.email,
+      role: members.role,
+    };
+    setMembers([...members, newMember]);
+  };
+
+  return (
+    <div className="App">
+      <Form addNewNote={addNewMember} />
+      <TeamMemberList members={members} />
+    </div>
+  );
 }
 
 export default App;
