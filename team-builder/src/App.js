@@ -10,23 +10,23 @@ function App() {
       id: uuid(),
       name: "Gabriel Romero",
       email: "gabester78@gmail.com",
-      role: "SwoleMaster",
+      role: "Swole Master Flex",
     },
   ]);
 
-  const addNewMember = (members) => {
+  const addNewMember = (data) => {
     const newMember = {
       id: Date.now(),
-      name: members.name,
-      email: members.email,
-      role: members.role,
+      name: data.name,
+      email: data.email,
+      role: data.role,
     };
     setMembers([...members, newMember]);
   };
 
   return (
     <div className="App">
-      <Form addNewNote={addNewMember} />
+      <Form addNewMember={addNewMember} />
       <TeamMemberList members={members} />
     </div>
   );
