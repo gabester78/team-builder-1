@@ -20,11 +20,40 @@ const Form = (props) => {
 
   return (
     <form onSubmit={submitForm}>
-      <label htmlFor="name">Name</label>
-      <input id="name" type="text" name="name" onChange={handleChanges} />
-      <label htmlFor="email">Email</label>
-      <input id="email" type="email" name="email" onChange={handleChanges} />
-      <button type="submit">Add Your Info</button>
+      <label htmlFor="name">Name: </label>
+      <input
+        id="name"
+        type="text"
+        name="name"
+        onChange={handleChanges}
+        value={newMembers.name}
+      />
+
+      <br></br>
+
+      <label htmlFor="email">Email: </label>
+      <input
+        id="email"
+        type="email"
+        name="email"
+        onChange={handleChanges}
+        value={newMembers.email}
+      />
+
+      <br></br>
+
+      <label htmlFor="role">Role: </label>
+      <input
+        id="role"
+        type="text"
+        name="role"
+        onChange={handleChanges}
+        value={newMembers.role}
+      />
+
+      <br></br>
+
+      <button type="submit">Submit</button>
     </form>
   );
 };
